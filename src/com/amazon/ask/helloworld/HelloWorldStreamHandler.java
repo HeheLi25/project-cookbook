@@ -20,9 +20,9 @@ import com.amazon.ask.helloworld.handlers.CancelandStopIntentHandler;
 import com.amazon.ask.helloworld.handlers.HelloWorldIntentHandler;
 import com.amazon.ask.helloworld.handlers.HelpIntentHandler;
 import com.amazon.ask.helloworld.handlers.SessionEndedRequestHandler;
-import com.amazon.ask.helloworld.handlers.SlotTestIntentHandler;
 import com.amazon.ask.helloworld.handlers.LaunchRequestHandler;
 import com.amazon.ask.helloworld.handlers.FallbackIntentHandler;
+import com.amazon.ask.helloworld.handlers.FindDishIntentHandler;
 
 public class HelloWorldStreamHandler extends SkillStreamHandler {
 
@@ -31,7 +31,7 @@ public class HelloWorldStreamHandler extends SkillStreamHandler {
                 .addRequestHandlers(
                         new CancelandStopIntentHandler(),
                         new HelloWorldIntentHandler(),
-                        new SlotTestIntentHandler(),
+                        new FindDishIntentHandler(),
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
