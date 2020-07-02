@@ -12,7 +12,7 @@ public class DBConnect {
 
 	private final String DBURL = "jdbc:postgresql://project-cookbook.cmi4lqvvhcf7.eu-west-2.rds.amazonaws.com:5434/postgres";
 	private final String DBUSER = "postgres";
-	private final String DBPASSWORD = "lyr971025";
+	private final String DBPASSWORD = "password";
 	private Connection conn = null;
 
 	public DBConnect() throws ClassNotFoundException, SQLException {
