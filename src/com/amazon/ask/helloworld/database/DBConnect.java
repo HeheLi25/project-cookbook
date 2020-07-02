@@ -10,22 +10,15 @@ import java.util.ArrayList;
 public class DBConnect {
 	private final String DBDRIVER = "org.postgresql.Driver";
 
-	private final String DBURL = "jdbc:postgresql://127.0.0.1:5432/postgres";
+	private final String DBURL = "jdbc:postgresql://project-cookbook.cmi4lqvvhcf7.eu-west-2.rds.amazonaws.com:5434/postgres";
 	private final String DBUSER = "postgres";
-	private final String DBPASSWORD = "000625";
-	private static String message = "";
+	private final String DBPASSWORD = "lyr971025";
 	private Connection conn = null;
 
-	public DBConnect() {
-		try {
+	public DBConnect() throws ClassNotFoundException, SQLException {
 			Class.forName(DBDRIVER);
 			this.conn = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
 			// System.out.println("Database connected.");
-		} catch (Exception e) {
-			System.out.println("Fail connection:" + e.getMessage());
-			message = e.getMessage();
-			e.printStackTrace();
-		}
 	}
 
 	public Connection getConnection() {
@@ -40,7 +33,7 @@ public class DBConnect {
 		}
 	}
 
-	public static Dish getDish(String name) {
+	public static Dish getDish(String name) throws ClassNotFoundException, SQLException {
 		DBConnect db = new DBConnect();
 		Dish dish = null;
 		try {
@@ -61,26 +54,33 @@ public class DBConnect {
 			rs.close();
 			dish = new Dish(name, effect, heal, ings);
 		} catch (Exception e) {
-			ArrayList<String> arr = new ArrayList<String>();
-			dish = new Dish(message, "1", false, arr);
 			e.printStackTrace();
 		} finally {
 			db.close();
 		}
-
 		return dish;
 	}
 
 	public static void main(String[] args) {
-		String dish = "hearty fried wild greens";
-		Dish dishObj = getDish(dish);
-		String speechText = dish + "is made of these ingredients: ";
-		for (String s : dishObj.getIngredients()) {
-			speechText = speechText + s + ", ";
+		String dish = "fried egg and rice";
+		String speechText = "";
+		Dish dishObj = null;
+		try {
+			dishObj = DBConnect.getDish(dish);
+		} catch (Exception e) {
+			speechText = "Sorry, something wrong happened with the database. I'll fix it as soon as I can";
 		}
-		speechText += "and its effect is " + dishObj.getEffect() + ". ";
-		if (!dishObj.isHeal()) {
-			speechText += "But it can not heal you.";
+		if (dishObj == null) {
+			speechText = "Currently, I don't know how to make "+ dish +", I promise I will keep learning. ";
+		} else {
+			speechText = dishObj.getName() + " is made of these ingredients: ";
+			for (String s : dishObj.getIngredients()) {
+				speechText = speechText + s + ", ";
+			}
+			speechText += "and its effect is " + dishObj.getEffect() + ". ";
+			if (!dishObj.isHeal()) {
+				speechText += "But it can not heal you.";
+			}
 		}
 		System.out.println(speechText);
 	}

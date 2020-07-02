@@ -33,10 +33,10 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		try {
 			dishObj = DBConnect.getDish(dish);
 		} catch (Exception e) {
-			speechText = "Something wrong happened with the database." + e.getMessage();
+			speechText = "Sorry, something wrong happened with the database. I'll fix it as soon as I can. ";
 		}
 		if (dishObj == null) {
-			speechText = "Dish not find.";
+			speechText = "Currently, I don't know how to make "+ dish +", I promise I will keep learning. ";
 		} else {
 			speechText = dishObj.getName() + " is made of these ingredients: ";
 			for (String s : dishObj.getIngredients()) {
@@ -47,8 +47,10 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 				speechText += "But it can not heal you.";
 			}
 		}
-		return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false)
-				.withSimpleCard("HelloWorld", speechText).build();
+		return input.getResponseBuilder()
+                .withSpeech(speechText)
+                .withSimpleCard("HelloWorld", speechText)
+                .build();
 	}
 
 }
