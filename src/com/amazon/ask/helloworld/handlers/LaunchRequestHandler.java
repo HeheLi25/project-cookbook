@@ -31,7 +31,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Welcome to the Alexa Skills Kit, you can say hello";
+        String speechText = "Welcome to Link's cookbook, you can ask me questions about dishes or ingredients.";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("HelloWorld", speechText)

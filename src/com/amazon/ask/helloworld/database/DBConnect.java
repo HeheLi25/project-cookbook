@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DBConnect {
 	private final String DBDRIVER = "org.postgresql.Driver";
 
-	private final String DBURL = "jdbc:postgresql://project-cookbook.cmi4lqvvhcf7.eu-west-2.rds.amazonaws.com:5434/postgres";
+	private final String DBURL = "jdbc:postgresql://someURL:5434/postgres";
 	private final String DBUSER = "postgres";
 	private final String DBPASSWORD = "password";
 	private Connection conn = null;
@@ -48,7 +48,7 @@ public class DBConnect {
 			rs = stmt.executeQuery("select * from ingredient where dish_name='" + name + "'");
 
 			while (rs.next()) {
-				ings.add(rs.getString("name"));
+				ings.add(rs.getInt("num") + " " + rs.getString("name"));
 			}
 			stmt.close();
 			rs.close();

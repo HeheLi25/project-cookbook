@@ -49,6 +49,7 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		}
 		return input.getResponseBuilder()
                 .withSpeech(speechText)
+                .withShouldEndSession(false)
                 .withSimpleCard("HelloWorld", speechText)
                 .build();
 	}
