@@ -36,7 +36,7 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 			speechText = "Sorry, something wrong happened with the database. I'll fix it as soon as I can. ";
 		}
 		if (dishObj == null) {
-			speechText = "Currently, I don't know how to make "+ dish +", I promise I will keep learning. ";
+			speechText = "Sorry, you got me this time. I promise I will keep learning. ";
 		} else {
 			speechText = dishObj.getName() + " is made of these ingredients: ";
 			for (String s : dishObj.getIngredients()) {
