@@ -32,12 +32,17 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		Dish dishObj = null;
 		try {
 			dishObj = DBConnect.getDish(dish);
-		} catch (Exception e) {
+		}
+		//if database exception occurs
+		catch (Exception e) {
 			speechText = "Sorry, something wrong happened with the database. I'll fix it as soon as I can. ";
 		}
+		//if the slot does not match
 		if (dishObj == null) {
-			speechText = "Sorry, you got me this time. I promise I will keep learning. ";
-		} else {
+			speechText = "Hmm, you got me this time. I don't know about "+String.valueOf(slot.getValue())+ ", but I promise I will learn. ";
+		} 
+		//if the result is returned successfully
+		else {
 			speechText = dishObj.getName() + " is made of these ingredients: ";
 			for (String s : dishObj.getIngredients()) {
 				speechText = speechText + s + ", ";

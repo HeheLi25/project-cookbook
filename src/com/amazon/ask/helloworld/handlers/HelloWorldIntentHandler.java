@@ -30,7 +30,7 @@ public class HelloWorldIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "This is a test of Yirong's Hello world!";
+        String speechText = "Hi! This is link's cookbook. How can I help you?";
        return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withShouldEndSession(false)
