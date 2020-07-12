@@ -38,11 +38,13 @@ public class FindIngredientIntentHandler implements IntentRequestHandler {
 			else {
 				speechText = "With " + ingredient + ", you can make ";
 				if(dishes.size() == 1)
-					speechText += dishes.get(0);
+					speechText += dishes.get(0) + ". ";
 				else {
 					for(int i = 0; i < dishes.size(); i++) {
-						if(i == dishes.size() - 1)
-							speechText += "and " + dishes.get(i) + ". ";
+						if(i == dishes.size() - 1) {
+							speechText = speechText.substring(0, speechText.length()-2);
+							speechText += " and " + dishes.get(i) + ". ";
+						}
 						else
 							speechText += dishes.get(i) + ", ";
 					}

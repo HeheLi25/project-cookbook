@@ -1,5 +1,10 @@
 package com.amazon.ask.helloworld.handlers;
 
+import static com.amazon.ask.request.Predicates.intentName;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
 import com.amazon.ask.helloworld.database.DBConnect;
@@ -8,22 +13,15 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
-import static com.amazon.ask.request.Predicates.intentName;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-public class FindDishIntentHandler implements IntentRequestHandler {
-
+public class FindEffectIntentHandler implements IntentRequestHandler{
 	@Override
 	public boolean canHandle(HandlerInput input, IntentRequest intentRequest) {
-		return input.matches(intentName("FindDish"));
+		return input.matches(intentName("FindEffect"));
 	}
 
 	@Override
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
-		final Slot slot = intentRequest.getIntent().getSlots().get("dish");
+		final Slot slot = intentRequest.getIntent().getSlots().get("effect");
 		String dish = "";
 		if (slot != null && slot.getResolutions() != null
 				&& slot.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
@@ -32,7 +30,7 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		String speechText = "";
 		Dish dishObj = null;
 		try {
-			dishObj = DBConnect.getDish(dish);
+			dishObj = DBConnect.findEffect(dish);
 		}
 		//if database exception occurs
 		catch (Exception e) {
@@ -40,11 +38,12 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		}
 		//if the slot does not match
 		if (dishObj == null) {
-			speechText = "Hmm, you got me this time. I don't know about "+String.valueOf(slot.getValue())+ ", but I promise I will learn. ";
+			speechText = "Sorry, " + String.valueOf(slot.getValue()) + " is beyond the capability of the dishes I know. "
+					+ "Please try another one or try to use a more common wording.";
 		} 
 		//if the result is returned successfully
 		else {
-			speechText = dishObj.getName() + " is made of ";
+			speechText = "Try this one: " + dishObj.getName() + ". Its effect is "+ dishObj.getEffect() +" and it is made of ";
 			ArrayList<String> ings = dishObj.getIngredients();
 			if(ings.size() == 1)
 				speechText += ings.get(0) + ". ";
@@ -57,10 +56,6 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 					else
 						speechText += ings.get(i) + ", ";
 				}
-			}
-			speechText += "Its effect is " + dishObj.getEffect() + ". ";
-			if (!dishObj.isHeal()) {
-				speechText += "But it can not heal you.";
 			}
 		}
 		return input.getResponseBuilder()
