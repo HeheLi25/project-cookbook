@@ -104,6 +104,11 @@ public class DBConnect {
 		
 	}
 	
+	/**
+	 * 
+	 * @param effect
+	 * @return
+	 */
 	public static Dish findEffect(String effect){
 		if(effect == "") return null;	
 		ArrayList<String> dishArr = new ArrayList<String>();
@@ -130,7 +135,10 @@ public class DBConnect {
 		dish = getDish(name);
 		return dish;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public static ArrayList<String> findMushroom(){
 		DBConnect db = null;
 		ArrayList<String> shrooms = null;
@@ -152,19 +160,37 @@ public class DBConnect {
 		return shrooms;
 	}
 	
+	public static boolean isMonsterPart(String str) {
+		str = str.replace("'", "''");
+		DBConnect db = null;
+		int count = -1;
+		try {
+			db = new DBConnect();
+			Statement stmt = db.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select count(*) from monster where part like \'%"+ str + "%\'");
+			rs.next();
+			count = rs.getInt("count");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close();
+		}
+		if(count > 0) return true;
+		else return false;
+	}
+	
 
 	
 	
 	public static void main(String[] args) {
-		String test = "apple";
+		String test = "shard of naydra's horn";
 		Dish dish = null;
-		ArrayList<String> arr = null;
-		
-			arr = searchIngredient(test);
-		
-		for(String n: arr) {
-			System.out.println(n);
-		}
+		ArrayList<String> arr = null;	
+		Boolean b = isMonsterPart(test);
+		System.out.println(b);
+//		for(String n: arr) {
+//			System.out.println(n);
+//		}
 	}
 
 }

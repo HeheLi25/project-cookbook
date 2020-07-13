@@ -27,15 +27,23 @@ public class FindIngredientIntentHandler implements IntentRequestHandler {
 				&& slot.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
 			ingredient = String.valueOf(slot.getValue());
 		}
+		Boolean monsterPart = false;
+		if(DBConnect.isMonsterPart(ingredient)) {
+			ingredient = "monster part";
+			monsterPart = true;
+		}
 		ArrayList<String> dishes = null;
 		String speechText = "";
 		dishes = DBConnect.searchIngredient(ingredient);
-		if (dishes == null)
+		if (dishes == null || dishes.size() == 0)
 			speechText = "Sorry, I don't know a lot about " + String.valueOf(slot.getValue())
-					+ ". If it is a monster part or an animal, try to ask me about animal types, "
-					+ "such as \"tough animal\", \"mighty animal\" or just \"monster part\".";
+					+ ". If it is an animal, try to ask me about animal types, "
+					+ "such as \"tough animal\" or \"mighty animal\".";
 		else {
-			speechText = "With " + ingredient + ", you can make ";
+			if(monsterPart) {
+				speechText = speechText + "Seems that "+ String.valueOf(slot.getValue()) +" is a monster part. ";
+			}
+			speechText = speechText + "With " + ingredient + ", you can make ";
 			if (dishes.size() == 1)
 				speechText += dishes.get(0) + ". ";
 			else {
