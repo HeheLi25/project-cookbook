@@ -137,6 +137,32 @@ public class DBConnect {
 	}
 	/**
 	 * 
+	 * @param part
+	 * @return
+	 */
+	public static String findMonsterPart(String part){
+		if(part == "") return null;	
+		String monster = null;
+		DBConnect db = null;
+		try {
+			db = new DBConnect();
+			Statement stmt = db.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select monster from monster where part like '%" + part + "%'");
+			rs.next();
+			monster = rs.getString("name");
+			stmt.close();
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close();
+		}
+		return monster;
+	}
+	
+	
+	/**
+	 * 
 	 * @return
 	 */
 	public static ArrayList<String> findMushroom(){
@@ -159,6 +185,9 @@ public class DBConnect {
 		}
 		return shrooms;
 	}
+	
+	
+	
 	/**
 	 * 
 	 * @return
@@ -183,7 +212,6 @@ public class DBConnect {
 		}
 		return eli;
 	}
-	
 	
 	/**
 	 * 
