@@ -28,7 +28,7 @@ public class FindElixirIntentHandler implements IntentRequestHandler {
 		String speechText = "";
 		ArrayList<String> elixirs = DBConnect.findElixir();
 		if(elixirs != null) {
-			speechText = "There are "+ elixirs.size() +"kinds of elixirs, including ";
+			speechText = "There are "+ elixirs.size() +" kinds of elixirs, including ";
 			if(elixirs.size() == 1)
 				speechText += elixirs.get(0) + ". ";
 			else {

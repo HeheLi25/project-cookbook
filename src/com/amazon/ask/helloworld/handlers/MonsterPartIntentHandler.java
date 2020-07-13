@@ -36,14 +36,14 @@ public class MonsterPartIntentHandler implements IntentRequestHandler {
 
 
 		//if the slot does not match
-		if (monster == null) {
+		if (monster == "" || part == "" || monster == null) {
 			speechText = "Hmm, I don't know about "+String.valueOf(slot.getValue())+ ", please make sure it is the right name of a monster part. ";
 		} 
 		//if the result is returned successfully
 		else {
-			speechText += part + "can dropped from "+ monster + ". ";
+			speechText += part + " can dropped from "+ monster + ". ";
 		}
-		Tool.firstUpperCase(speechText);
+		speechText = Tool.firstUpperCase(speechText);
 		return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withShouldEndSession(false)

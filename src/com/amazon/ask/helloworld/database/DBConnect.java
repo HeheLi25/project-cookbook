@@ -141,6 +141,7 @@ public class DBConnect {
 	 * @return
 	 */
 	public static String findMonsterPart(String part){
+		part = part.replace("'", "''");
 		if(part == "") return null;	
 		String monster = null;
 		DBConnect db = null;
@@ -149,7 +150,7 @@ public class DBConnect {
 			Statement stmt = db.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select monster from monster where part like '%" + part + "%'");
 			rs.next();
-			monster = rs.getString("name");
+			monster = rs.getString("monster");
 			stmt.close();
 			rs.close();
 		} catch (Exception e) {
@@ -215,6 +216,33 @@ public class DBConnect {
 	
 	/**
 	 * 
+	 * @return
+	 */
+	public static ArrayList<String> findMonster(String monster){
+		DBConnect db = null;
+		ArrayList<String> drop = null;
+		try {
+			db = new DBConnect();
+			drop = new ArrayList<String>();
+			Statement stmt = db.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select distinct part from monster where monster like '%"+ monster + "%'");
+			while(rs.next()) {
+				drop.add(rs.getString("part"));
+			}
+			stmt.close();
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close();
+		}
+		return drop;
+	}
+	
+	
+	
+	/**
+	 * 
 	 * @param str
 	 * @return
 	 */
@@ -241,11 +269,11 @@ public class DBConnect {
 	
 	
 	public static void main(String[] args) {
-		String test = "shard of naydra's horn";
+		String test = "naydra's scale";
 		Dish dish = null;
 		ArrayList<String> arr = null;	
-		Boolean b = isMonsterPart(test);
-		System.out.println(b);
+		String r = findMonsterPart(test);
+		System.out.println(r);
 //		for(String n: arr) {
 //			System.out.println(n);
 //		}

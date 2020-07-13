@@ -61,7 +61,7 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 				speechText += "But it can not heal you.";
 			}
 		}
-		Tool.firstUpperCase(speechText);
+		speechText = Tool.firstUpperCase(speechText);
 		return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withShouldEndSession(false)

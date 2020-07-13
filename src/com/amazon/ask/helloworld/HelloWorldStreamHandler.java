@@ -21,11 +21,13 @@ import com.amazon.ask.helloworld.handlers.HelloWorldIntentHandler;
 import com.amazon.ask.helloworld.handlers.HelpIntentHandler;
 import com.amazon.ask.helloworld.handlers.SessionEndedRequestHandler;
 import com.amazon.ask.helloworld.handlers.LaunchRequestHandler;
+import com.amazon.ask.helloworld.handlers.MonsterPartIntentHandler;
 import com.amazon.ask.helloworld.handlers.FallbackIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindDishIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindEffectIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindElixirIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindIngredientIntentHandler;
+import com.amazon.ask.helloworld.handlers.FindMonsterIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindMushroomIntentHandler;
 
 public class HelloWorldStreamHandler extends SkillStreamHandler {
@@ -40,6 +42,8 @@ public class HelloWorldStreamHandler extends SkillStreamHandler {
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
+                        new MonsterPartIntentHandler(),
+                        new FindMonsterIntentHandler(),
                         new FindEffectIntentHandler(),
                         new FindMushroomIntentHandler(),
                         new FindElixirIntentHandler(),
