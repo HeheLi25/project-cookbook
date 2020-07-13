@@ -28,7 +28,7 @@ public class FindIngredientIntentHandler implements IntentRequestHandler {
 			ingredient = String.valueOf(slot.getValue());
 		}
 		Boolean monsterPart = false;
-		if(DBConnect.isMonsterPart(ingredient)) {
+		if (DBConnect.isMonsterPart(ingredient)) {
 			ingredient = "monster part";
 			monsterPart = true;
 		}
@@ -40,22 +40,24 @@ public class FindIngredientIntentHandler implements IntentRequestHandler {
 					+ ". If it is an animal, try to ask me about animal types, "
 					+ "such as \"tough animal\" or \"mighty animal\".";
 		else {
-			if(monsterPart) {
-				speechText = speechText + "Seems that "+ String.valueOf(slot.getValue()) +" is a monster part. ";
-			}
-			speechText = speechText + "With " + ingredient + ", you can make ";
-			if (dishes.size() == 1)
-				speechText += dishes.get(0) + ". ";
-			else {
-				for (int i = 0; i < dishes.size(); i++) {
-					if (i == dishes.size() - 1) {
-						speechText = speechText.substring(0, speechText.length() - 2);
-						speechText += " and " + dishes.get(i) + ". ";
-					} else
-						speechText += dishes.get(i) + ", ";
+			if (monsterPart) {
+				speechText = speechText + "Seems that " + String.valueOf(slot.getValue()) + " is a monster part. "
+						+ "With monster parts, you can make all kinds of elixirs. ";
+			} else {
+				speechText = speechText + "With " + ingredient + ", you can make ";
+				if (dishes.size() == 1)
+					speechText += dishes.get(0) + ". ";
+				else {
+					for (int i = 0; i < dishes.size(); i++) {
+						if (i == dishes.size() - 1) {
+							speechText = speechText.substring(0, speechText.length() - 2);
+							speechText += " and " + dishes.get(i) + ". ";
+						} else
+							speechText += dishes.get(i) + ", ";
+					}
 				}
 			}
-			speechText += "Ask me if you want to know more about any dish. ";
+			speechText += "Ask me if you want to know more about any dish or elixir. ";
 		}
 
 		return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false)

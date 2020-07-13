@@ -28,7 +28,7 @@ public class FindMushroomIntentHandler implements IntentRequestHandler {
 		String speechText = "";
 		ArrayList<String> shrooms = DBConnect.findMushroom();
 		if(shrooms != null) {
-			speechText = "There are many mushrooms growing on the land of Hyrule, inluding ";
+			speechText = "There are "+ shrooms.size() +"kinds of mushrooms growing on the land of Hyrule, including";
 			if(shrooms.size() == 1)
 				speechText += shrooms.get(0) + ". ";
 			else {
