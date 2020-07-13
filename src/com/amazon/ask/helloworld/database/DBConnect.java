@@ -159,7 +159,37 @@ public class DBConnect {
 		}
 		return shrooms;
 	}
+	/**
+	 * 
+	 * @return
+	 */
+	public static ArrayList<String> findElixir(){
+		DBConnect db = null;
+		ArrayList<String> eli = null;
+		try {
+			db = new DBConnect();
+			eli = new ArrayList<String>();
+			Statement stmt = db.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select distinct name from dish where name like '%elixir%'");
+			while(rs.next()) {
+				eli.add(rs.getString("name"));
+			}
+			stmt.close();
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close();
+		}
+		return eli;
+	}
 	
+	
+	/**
+	 * 
+	 * @param str
+	 * @return
+	 */
 	public static boolean isMonsterPart(String str) {
 		str = str.replace("'", "''");
 		DBConnect db = null;

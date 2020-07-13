@@ -16,29 +16,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class FindMushroomIntentHandler implements IntentRequestHandler {
+public class FindElixirIntentHandler implements IntentRequestHandler {
 
 	@Override
 	public boolean canHandle(HandlerInput input, IntentRequest intentRequest) {
-		return input.matches(intentName("FindMushroom"));
+		return input.matches(intentName("FindElixir"));
 	}
 
 	@Override
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
 		String speechText = "";
-		ArrayList<String> shrooms = DBConnect.findMushroom();
-		if(shrooms != null) {
-			speechText = "There are "+ shrooms.size() +"kinds of mushrooms growing on the land of Hyrule, including ";
-			if(shrooms.size() == 1)
-				speechText += shrooms.get(0) + ". ";
+		ArrayList<String> elixirs = DBConnect.findElixir();
+		if(elixirs != null) {
+			speechText = "There are "+ elixirs.size() +"kinds of elixirs, including ";
+			if(elixirs.size() == 1)
+				speechText += elixirs.get(0) + ". ";
 			else {
-				for(int i = 0; i < shrooms.size(); i++) {
-					if(i == shrooms.size() - 1) {
+				for(int i = 0; i < elixirs.size(); i++) {
+					if(i == elixirs.size() - 1) {
 						speechText = speechText.substring(0, speechText.length()-2);
-						speechText += " and " + shrooms.get(i) + ". ";
+						speechText += " and " + elixirs.get(i) + ". ";
 					}
 					else
-						speechText += shrooms.get(i) + ", ";
+						speechText += elixirs.get(i) + ", ";
 				}
 			}
 		}
