@@ -4,6 +4,7 @@ import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.impl.IntentRequestHandler;
 import com.amazon.ask.helloworld.database.DBConnect;
 import com.amazon.ask.helloworld.database.Dish;
+import com.amazon.ask.helloworld.database.Tool;
 import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
@@ -42,6 +43,7 @@ public class MonsterPartIntentHandler implements IntentRequestHandler {
 		else {
 			speechText += part + "can dropped from "+ monster + ". ";
 		}
+		Tool.firstUpperCase(speechText);
 		return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withShouldEndSession(false)
