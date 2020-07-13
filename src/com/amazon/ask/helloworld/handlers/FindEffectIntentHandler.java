@@ -29,13 +29,10 @@ public class FindEffectIntentHandler implements IntentRequestHandler{
 		}
 		String speechText = "";
 		Dish dishObj = null;
-		try {
-			dishObj = DBConnect.findEffect(dish);
-		}
-		//if database exception occurs
-		catch (Exception e) {
-			speechText = "Sorry, something wrong happened with the database. I'll fix it as soon as I can. ";
-		}
+
+		dishObj = DBConnect.findEffect(dish);
+
+
 		//if the slot does not match
 		if (dishObj == null) {
 			speechText = "Sorry, " + String.valueOf(slot.getValue()) + " is beyond the capability of the dishes I know. "

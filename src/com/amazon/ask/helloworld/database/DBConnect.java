@@ -42,11 +42,12 @@ public class DBConnect {
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public static Dish getDish(String name) throws ClassNotFoundException, SQLException {
+	public static Dish getDish(String name){
 		if(name == "") return null;
-		DBConnect db = new DBConnect();
+		DBConnect db = null;
 		Dish dish = null;
 		try {
+			db = new DBConnect();
 			Statement stmt = db.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from dish where name='" + name + "'");
 			rs.next();
@@ -80,11 +81,12 @@ public class DBConnect {
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public static ArrayList<String> searchIngredient(String ingredient) throws ClassNotFoundException, SQLException{
+	public static ArrayList<String> searchIngredient(String ingredient){
 		if(ingredient == "") return null;
-		DBConnect db = new DBConnect();
+		DBConnect db = null;
 		ArrayList<String> dishes = new ArrayList<String>();
 		try {
+			db = new DBConnect();
 			Statement stmt = db.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from ingredient where name like '%" + ingredient + "%'");
 			while(rs.next()) {
@@ -102,13 +104,14 @@ public class DBConnect {
 		
 	}
 	
-	public static Dish findEffect(String effect) throws ClassNotFoundException, SQLException{
-		if(effect == "") return null;
-		DBConnect db = new DBConnect();
+	public static Dish findEffect(String effect){
+		if(effect == "") return null;	
 		ArrayList<String> dishArr = new ArrayList<String>();
 		Dish dish = null;
 		String name = "";
+		DBConnect db = null;
 		try {
+			db = new DBConnect();
 			Statement stmt = db.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select name from dish where effect like '%" + effect + "%'");
 			while(rs.next()) {
@@ -128,6 +131,27 @@ public class DBConnect {
 		return dish;
 	}
 	
+	public static ArrayList<String> findMushroom(){
+		DBConnect db = null;
+		ArrayList<String> shrooms = null;
+		try {
+			db = new DBConnect();
+			shrooms = new ArrayList<String>();
+			Statement stmt = db.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select distinct name from ingredient where name like '%shroom%'");
+			while(rs.next()) {
+				shrooms.add(rs.getString("name"));
+			}
+			stmt.close();
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close();
+		}
+		return shrooms;
+	}
+	
 
 	
 	
@@ -135,16 +159,9 @@ public class DBConnect {
 		String test = "apple";
 		Dish dish = null;
 		ArrayList<String> arr = null;
-		try {
+		
 			arr = searchIngredient(test);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//System.out.println("Name:" + dish.getName());
+		
 		for(String n: arr) {
 			System.out.println(n);
 		}

@@ -25,26 +25,8 @@ public class FindMushroomIntentHandler implements IntentRequestHandler {
 
 	@Override
 	public Optional<Response> handle(HandlerInput input, IntentRequest intentRequest) {
-		DBConnect db = null;
 		String speechText = "";
-		ArrayList<String> shrooms = null;
-		try {
-			db = new DBConnect();
-			shrooms = new ArrayList<String>();
-			Statement stmt = db.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select distinct name from ingredient where name like '%shroom%'");
-			while(rs.next()) {
-				shrooms.add(rs.getString("name"));
-			}
-			stmt.close();
-			rs.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			speechText = "Sorry, there is something wrong with the database. I promise I will fix it as soon as possible.";
-		} finally {
-			db.close();
-		}
+		ArrayList<String> shrooms = DBConnect.findMushroom();
 		if(shrooms != null) {
 			speechText = "There are many mushrooms growing on the land of Hyrule, inluding ";
 			if(shrooms.size() == 1)
@@ -60,6 +42,8 @@ public class FindMushroomIntentHandler implements IntentRequestHandler {
 				}
 			}
 		}
+		else
+			speechText = "Sorry, there is something wrong with the database. I promise I will fix it as soon as possible.";
 		
 		
 		return input.getResponseBuilder()

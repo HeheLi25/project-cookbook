@@ -29,40 +29,29 @@ public class FindIngredientIntentHandler implements IntentRequestHandler {
 		}
 		ArrayList<String> dishes = null;
 		String speechText = "";
-		try {
-			dishes = DBConnect.searchIngredient(ingredient);
-			if(dishes == null)
-				speechText = "Sorry, I don't know a lot about "+ String.valueOf(slot.getValue()) 
-				+ ". If it is a monster part or an animal, try to ask me about animal types, "
-				+ "such as \"tough animal\", \"mighty animal\" or just \"monster part\".";
+		dishes = DBConnect.searchIngredient(ingredient);
+		if (dishes == null)
+			speechText = "Sorry, I don't know a lot about " + String.valueOf(slot.getValue())
+					+ ". If it is a monster part or an animal, try to ask me about animal types, "
+					+ "such as \"tough animal\", \"mighty animal\" or just \"monster part\".";
+		else {
+			speechText = "With " + ingredient + ", you can make ";
+			if (dishes.size() == 1)
+				speechText += dishes.get(0) + ". ";
 			else {
-				speechText = "With " + ingredient + ", you can make ";
-				if(dishes.size() == 1)
-					speechText += dishes.get(0) + ". ";
-				else {
-					for(int i = 0; i < dishes.size(); i++) {
-						if(i == dishes.size() - 1) {
-							speechText = speechText.substring(0, speechText.length()-2);
-							speechText += " and " + dishes.get(i) + ". ";
-						}
-						else
-							speechText += dishes.get(i) + ", ";
-					}
+				for (int i = 0; i < dishes.size(); i++) {
+					if (i == dishes.size() - 1) {
+						speechText = speechText.substring(0, speechText.length() - 2);
+						speechText += " and " + dishes.get(i) + ". ";
+					} else
+						speechText += dishes.get(i) + ", ";
 				}
-				speechText += "Ask me if you want to know more about any dish. ";
 			}
-		}catch(Exception e) {
-			
-			e.printStackTrace();
+			speechText += "Ask me if you want to know more about any dish. ";
 		}
-		
-		
-		
-		return input.getResponseBuilder()
-                .withSpeech(speechText)
-                .withShouldEndSession(false)
-                .withSimpleCard("HelloWorld", speechText)
-                .build();
+
+		return input.getResponseBuilder().withSpeech(speechText).withShouldEndSession(false)
+				.withSimpleCard("HelloWorld", speechText).build();
 	}
 
 }
