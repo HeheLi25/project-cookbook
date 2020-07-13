@@ -25,6 +25,7 @@ import com.amazon.ask.helloworld.handlers.FallbackIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindDishIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindEffectIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindIngredientIntentHandler;
+import com.amazon.ask.helloworld.handlers.FindMushroomIntentHandler;
 
 public class HelloWorldStreamHandler extends SkillStreamHandler {
 
@@ -39,6 +40,7 @@ public class HelloWorldStreamHandler extends SkillStreamHandler {
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
                         new FindEffectIntentHandler(),
+                        new FindMushroomIntentHandler(),
                         new FallbackIntentHandler())
                 // Add your skill id below
                 //.withSkillId("")
