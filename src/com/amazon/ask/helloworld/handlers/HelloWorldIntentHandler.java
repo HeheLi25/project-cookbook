@@ -33,8 +33,8 @@ public class HelloWorldIntentHandler implements RequestHandler {
         String speechText = "Hi! This is link's cookbook. How can I help you?";
        return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withShouldEndSession(false)
                 .withSimpleCard("HelloWorld", speechText)
+                .withShouldEndSession(false)
                 .build();
     }
 

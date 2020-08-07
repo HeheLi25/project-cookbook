@@ -34,7 +34,7 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		Dish dishObj = null;
 
 		dishObj = DBConnect.getDish(dish);
-
+		String cardText = "";
 
 		//if the slot does not match
 		if (dishObj == null) {
@@ -56,16 +56,24 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 						speechText += ings.get(i) + ", ";
 				}
 			}
+			
+			for(String s: ings) {
+				cardText += s + "\n";
+			}
 			speechText += "Its effect is " + dishObj.getEffect() + ". ";
 			if (!dishObj.isHeal()) {
 				speechText += "But it can not heal you.";
 			}
 		}
 		speechText = Tool.firstUpperCase(speechText);
+		
+	    String cardTitle = dish;
+	    
 		return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withShouldEndSession(false)
-                .withSimpleCard("HelloWorld", speechText)
+                .withStandardCard(cardTitle, cardText, null)
+                .withReprompt(speechText)
                 .build();
 	}
 

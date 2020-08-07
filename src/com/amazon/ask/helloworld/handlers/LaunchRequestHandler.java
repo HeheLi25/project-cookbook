@@ -34,7 +34,7 @@ public class LaunchRequestHandler implements RequestHandler {
         String speechText = "Welcome to Link's cookbook, you can ask me questions about dishes or ingredients.";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
-                .withSimpleCard("HelloWorld", speechText)
+                .withStandardCard("Link's cookbook", "Ask me about:\n- Ingredients\n- Dishes\n- Monster parts", null)
                 .withReprompt(speechText)
                 .build();
     }
