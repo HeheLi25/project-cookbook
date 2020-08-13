@@ -30,10 +30,10 @@ public class FindMonsterIntentHandler implements IntentRequestHandler {
 		}
 		String speechText = "";
 		ArrayList<String> drop = DBConnect.findMonster(monster);
-		if (drop == null || drop.size() == 0)
+		if (drop == null || drop.size() == 0 || drop.size() > 5) {
 			speechText = "Sorry, I don't know a lot about " + String.valueOf(slot.getValue())
 					+ ". Please make sure it is a kind of monster that exist on the land of Hyrule.";
-		else {
+		}else {
 
 				speechText = speechText + monster + " can probably drop ";
 				if (drop.size() == 1)
