@@ -30,6 +30,8 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 				&& slot.getResolutions().toString().contains("ER_SUCCESS_MATCH")) {
 			dish = String.valueOf(slot.getValue());
 		}
+		dish = dish.replace("Alexa", "elixir");
+		dish = dish.replace("election", "elixir");
 		String speechText = "";
 		Dish dishObj = null;
 
