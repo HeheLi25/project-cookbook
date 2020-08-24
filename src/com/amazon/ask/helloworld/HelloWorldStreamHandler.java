@@ -30,7 +30,7 @@ import com.amazon.ask.helloworld.handlers.FindIngredientIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindMonsterIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindMushroomIntentHandler;
 
-public class CookbookStreamHandler extends SkillStreamHandler {
+public class HelloWorldStreamHandler extends SkillStreamHandler {
 
     private static Skill getSkill() {
         return Skills.standard()
