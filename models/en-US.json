@@ -1,36 +1,1877 @@
 {
-  "languageModel": {
-    "intents": [
-      {
-        "name": "AMAZON.CancelIntent",
-        "samples": []
-      },
-      {
-        "name": "AMAZON.HelpIntent",
-        "samples": []
-      },
-      {
-        "name": "AMAZON.StopIntent",
-        "samples": []
-      },
-      {
-        "name": "HelloWorldIntent",
-        "samples": [
-          "say hello",
-          "say hello world",
-          "hello",
-          "say hi",
-          "say hi world",
-          "hi",
-          "how are you"
-        ],
-        "slots": []
-      },
-      {
-        "name": "AMAZON.FallbackIntent",
-        "samples": []
-      }
-    ],
-    "invocationName": "hello world"
-  }
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "the cookbook of link",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello",
+                        "hi"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "FindDish",
+                    "slots": [
+                        {
+                            "name": "dish",
+                            "type": "dish",
+                            "samples": [
+                                "{dish}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want to know about {dish}",
+                        "Give me  information about {dish}",
+                        "Give me some information about {dish}",
+                        "give me a dish",
+                        "I'm looking for a dish",
+                        "How to cook a {dish}",
+                        "How to cook {dish}",
+                        "How to make a {dish}",
+                        "How to make {dish}",
+                        "{dish}",
+                        "I want to know about a dish",
+                        "Tell me a dish",
+                        "Tell me about a dish",
+                        "Tell me more about {dish}",
+                        "I want to know more about {dish} ",
+                        "Tell me about {dish}",
+                        "What is {dish} made of",
+                        "How can I make {dish}",
+                        "How can I make a {dish}",
+                        "Tell me something about {dish}"
+                    ]
+                },
+                {
+                    "name": "FindIngredient",
+                    "slots": [
+                        {
+                            "name": "ingredient",
+                            "type": "ingredient",
+                            "samples": [
+                                "{ingredient}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I have an ingredient",
+                        "I want to know about an ingredient",
+                        "I have {ingredient}",
+                        "I have a {ingredient}",
+                        "What can an {ingredient} make",
+                        "What can I do with an {ingredient}",
+                        "What can I make with an {ingredient}",
+                        "What can I cook with an {ingredient}",
+                        "What can I cook with a {ingredient}",
+                        "What can I cook with {ingredient}",
+                        "What can I make with a {ingredient}",
+                        "What can I make with {ingredient}",
+                        "What can I do with {ingredient}",
+                        "What can I do with a {ingredient}",
+                        "What can a {ingredient} make",
+                        "What can {ingredient} make"
+                    ]
+                },
+                {
+                    "name": "FindEffect",
+                    "slots": [
+                        {
+                            "name": "effect",
+                            "type": "effect",
+                            "samples": [
+                                "{effect}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I'm looking for {effect}",
+                        "I need {effect}",
+                        "I want {effect}",
+                        "I need an effect",
+                        "I want an effect",
+                        "I'm looking for an effect",
+                        "{effect}",
+                        "Give me an example of a dish that provides  {effect}",
+                        "Tell me a dish that provides me {effect}",
+                        "Tell me a dish that has the effect of {effect} ",
+                        "Tell me a dish that provides {effect}",
+                        "Give me a dish that provides {effect}"
+                    ]
+                },
+                {
+                    "name": "FindMushroom",
+                    "slots": [],
+                    "samples": [
+                        "mushrooms",
+                        "what kinds of mushrooms are there",
+                        "mushroom",
+                        "tell me about the mushrooms",
+                        "How many kinds of mushrooms are there"
+                    ]
+                },
+                {
+                    "name": "FindMonsterPart",
+                    "slots": [
+                        {
+                            "name": "monsterPart",
+                            "type": "part",
+                            "samples": [
+                                "{monsterPart}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I need a monster part",
+                        "how to find a {monsterPart}",
+                        "I want a {monsterPart}",
+                        "how can i get a {monsterPart}",
+                        "how to get a {monsterPart}"
+                    ]
+                },
+                {
+                    "name": "FindMonster",
+                    "slots": [
+                        {
+                            "name": "monster",
+                            "type": "monster"
+                        }
+                    ],
+                    "samples": [
+                        "What can I get if I kill a {monster}",
+                        "{monster}",
+                        "What can I get from {monster}",
+                        "tell me a monster",
+                        "what can {monster} drop",
+                        "what will {monster} drop",
+                        "tell me about a monster",
+                        "Tell me about {monster}",
+                        "I want to know about a monster",
+                        "I want to know about {monster}"
+                    ]
+                },
+                {
+                    "name": "FindElixir",
+                    "slots": [],
+                    "samples": [
+                        "election",
+                        "elixir",
+                        "elixirs",
+                        "how many kinds of elixirs are there",
+                        "what kinds of elixirs are there",
+                        "What are the elixirs "
+                    ]
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "dish",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "tough Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enduring election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enduring Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fireproof Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fireproof election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electro election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electro Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chilly election"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chilly Alexa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seared steak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough salt grilled mushrooms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough steamed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough prime meat and rice bowl"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough meaty rice balls"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough meat stuffed pumpkin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough meat and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough hot buttered apple"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough fried wild greens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough fish and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "toasty stamella shroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "toasty hylian shroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "steamed mushrooms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "steamed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "steak skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy salt grilled prime meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy salt grilled meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy meat and seafood fry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy meat and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy meat and mushroom mix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky steamed mushrooms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky steamed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky steamed fish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky fried wild greens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sneaky elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "simmered fruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seared prime steak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seared gourmet steak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "salt grilled mushrooms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "salt grilled meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "salt-grilled fish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "roasted radish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "roasted bird drumstick"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "roasted bass"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "roasted acorn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pepper steak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "omelet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty simmered fruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty crab risotto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "meaty rice balls"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "meat skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "meat and seafood fry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "meat and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "honeyed fruits"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty wild greens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty steamed mushrooms"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty steamed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty salt grilled fish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty meat and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty veggie cream soup"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty simmered fruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty friend wild greens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty fish and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hasty elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "glazed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fruit and mushroom mix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fried wild greens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fish skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fish and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fireproof elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing steamed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing meaty rice balls"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing honeyed apple"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing glazed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing fish and mushroom skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "energizing elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enduring elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electro elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "baked palm fruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "baked apple"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fried egg and rice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty fried wild greens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electro meat skewer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chill steamed fish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy fruit and mushroom mix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy pepper steak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy sauteed peppers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy simmered fruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy pepper seafood"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough elixir"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chilly elixir"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ingredient",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "yellow chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yello lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "white chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of naydra's horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of naydra's fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of farosh's horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of farosh's fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of dinraal's horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of dinraal's fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "red chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octorok tentacle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octorok eyeball"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octo balloon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "naydra's scale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "naydra's claw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "molduga guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "molduga fin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel hoof"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos talon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keese eyeball"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "icy lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ice keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox tooth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox toenail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fire keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "farosh's scale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "farosh's claw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electric keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dinraal's scale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dinraal's claw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "zapshroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "voltfruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "tough animal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "swift carrot"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sunshroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sunset firefly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "steamed meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "staminoka bass"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stamella shroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silent shroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "seared steak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rushroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rock salt"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "red lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "razorclaw crab"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raw prime meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bird meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raw meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raw gourmet meat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raw bird drumstick"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "palm fruit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mushroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "monster part"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty thistle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty carp"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty bananas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mighty animal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ironshroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hyrule herb"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hyrule bass"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hylian shroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hylian rice"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hylain shroom"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty truffle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty radish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hearty animal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "goat butter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fresh milk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fortified pumpkin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fleet lotus seeds"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fleet lotus seed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fish"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fireproof animal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enduring animal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "courser bee honey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cool safflina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blue nightshade"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bird egg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "armored carp"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "armoranth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "spicy pepper"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "acorn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apple"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "effect",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "defense boost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cold resistance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stealth boost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "attack boost"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fully healing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "temporary hearts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "haste movement speed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fireproof buff"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "restoring full stamina wheel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "extra stamina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "heat resistance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "recovering stamina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "healing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electricity resistance"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "part",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "shard of farosh's horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of farosh's fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "farosh's claw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "farosh's scale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of naydra's horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of naydra's fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "naydra's claw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "naydra's scale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of dinraal's horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shard of dinraal's fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dinraal's claw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dinraal's scale"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "molduga guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "molduga fin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox toenail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox tooth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octorok eyeball"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octorok tentacle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octo balloon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keese eyeball"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electric keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fire keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ice keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keese wing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yellow chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "red chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "white chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chuchu jelly"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel hoof"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "yello lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "red lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "icy lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos tail"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos talon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin horn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin guts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin fang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin horn"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "monster",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "stalmoblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "molduga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ice keese"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ice chuchu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ice breath lizalfos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electric lizalfos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fire keese"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fire chuchu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "fire breath lizalfos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electric keese"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "electirc chuchu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silver moblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "black moblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blue moblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "silver bokoblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "black bokoblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "blue bokoblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "farosh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "naydra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "dinraal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stalnox"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hinox"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "octorok"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "keese"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "chuchu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lynel"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "lizalfos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "moblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "stalkoblin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bokoblin"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "FindDish",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "dish",
+                            "type": "dish",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1100508603426.1129592847485"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1100508603426.1129592847485.58139717937"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "FindIngredient",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "ingredient",
+                            "type": "ingredient",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1423691453685.1562768240406"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1423691453685.1562768240406.1007215703085"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "FindEffect",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "effect",
+                            "type": "effect",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1270280817423.73487761277"
+                            },
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1270280817423.73487761277.1355059365137"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "FindMonsterPart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "monsterPart",
+                            "type": "part",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.907081392280.160231926579"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1270280817423.73487761277",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sure, what effect are you looking for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1100508603426.1129592847485",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "I'm listening. Which dish do you want to know?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Ok, what is the name of the dish?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1100508603426.1129592847485.58139717937",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sorry, I'm afraid that {dish} is not in the cookbook. Maybe it's not a dish on the land of Hyrule. Please try another one. "
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1270280817423.73487761277.1355059365137",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sorry, {effect} is beyond the capability of the dishes I know. The available effects are healing, recovering stamina, electricity resistance, heat resistance, cold resistance, defence resistance, stealth boost, attack boost, extra stamina, restoring full stamina, fireproof buff, haste movement speed, temporary hearts and full healing. Please try another one. "
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1423691453685.1562768240406",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sure, what is the name of the ingredient?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Ok, which ingredient?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1423691453685.1562768240406.1007215703085",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sorry, I don't know much about {ingredient} . If it is a monster part or an animal, try to ask me about animal types, such as tough animal, mighty animal or just ask me monster part. "
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.907081392280.160231926579",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Sure, tell me the name of the monster part"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Ok, what is the name of the monster part?"
+                    }
+                ]
+            }
+        ]
+    }
 }
