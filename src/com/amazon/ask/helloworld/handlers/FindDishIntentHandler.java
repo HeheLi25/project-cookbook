@@ -35,7 +35,7 @@ public class FindDishIntentHandler implements IntentRequestHandler {
 		String speechText = "";
 		Dish dishObj = null;
 
-		dishObj = DBConnect.getDish(dish);
+		dishObj = DBConnect.getDish(dish); //Query the database
 		String cardText = "";
 
 		//if the slot does not match
