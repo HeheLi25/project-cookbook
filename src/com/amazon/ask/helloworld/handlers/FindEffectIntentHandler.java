@@ -13,6 +13,9 @@ import com.amazon.ask.model.IntentRequest;
 import com.amazon.ask.model.Response;
 import com.amazon.ask.model.Slot;
 
+/**
+ * Handler for the questions about a specific special effect. 
+ */
 public class FindEffectIntentHandler implements IntentRequestHandler{
 	@Override
 	public boolean canHandle(HandlerInput input, IntentRequest intentRequest) {

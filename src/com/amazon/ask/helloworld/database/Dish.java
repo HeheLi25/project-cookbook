@@ -2,6 +2,11 @@ package com.amazon.ask.helloworld.database;
 
 import java.util.ArrayList;
 
+/**
+ * Class Dish: the class of dishes. Used when a dish is retrieved from database.
+ * @author YirongLi
+ *
+ */
 public class Dish {
 	private String name;
 	private String effect;

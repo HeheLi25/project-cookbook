@@ -11,7 +11,11 @@ import static com.amazon.ask.request.Predicates.intentName;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
+/**
+ * Handler for the questions about an ingredient.
+ * @author YirongLi
+ *
+ */
 public class FindIngredientIntentHandler implements IntentRequestHandler {
 
 	@Override

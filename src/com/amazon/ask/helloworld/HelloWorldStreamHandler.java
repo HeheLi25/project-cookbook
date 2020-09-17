@@ -30,6 +30,13 @@ import com.amazon.ask.helloworld.handlers.FindIngredientIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindMonsterIntentHandler;
 import com.amazon.ask.helloworld.handlers.FindMushroomIntentHandler;
 
+
+/**
+ * Class StreamHandler: register all the other handlers. 
+ * @author YirongLi
+ *
+ */
+
 public class HelloWorldStreamHandler extends SkillStreamHandler {
 
     private static Skill getSkill() {

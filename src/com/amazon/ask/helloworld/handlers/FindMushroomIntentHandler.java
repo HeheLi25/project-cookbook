@@ -16,6 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Handler for the questions about what kinds of mushroom are there. 
+ * @author YirongLi
+ *
+ */
 public class FindMushroomIntentHandler implements IntentRequestHandler {
 
 	@Override

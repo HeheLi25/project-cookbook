@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Handler for the questions about a specific dish. 
+ * @author YirongLi
+ *
+ */
 public class FindDishIntentHandler implements IntentRequestHandler {
 
 	@Override

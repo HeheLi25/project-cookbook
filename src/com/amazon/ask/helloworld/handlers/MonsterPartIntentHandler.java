@@ -14,7 +14,11 @@ import static com.amazon.ask.request.Predicates.intentName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Handler for the questions about monster parts. 
+ * @author YirongLi
+ *
+ */
 public class MonsterPartIntentHandler implements IntentRequestHandler {
 
 	@Override

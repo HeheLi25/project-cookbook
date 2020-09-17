@@ -7,7 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
-
+/**
+ * Class for all methods that access the database. 
+ * @author YirongLi
+ *
+ */
 public class DBConnect {
 	private final String DBDRIVER = "org.postgresql.Driver";
 
@@ -25,7 +29,10 @@ public class DBConnect {
 	public Connection getConnection() {
 		return this.conn;
 	}
-
+	
+	/**
+	 * Close the connection.
+	 */
 	public void close() {
 		try {
 			this.conn.close();
@@ -36,7 +43,7 @@ public class DBConnect {
 
 	
 	/**
-	 * This getDish method query the database for the information of a dish. 
+	 * This getDish method queries the database for the information of a dish. 
 	 * @param name - The name of the dish, used to generate the query. 
 	 * @return - the Dish object that contains the information of the dish.
 	 * @throws ClassNotFoundException
@@ -75,7 +82,7 @@ public class DBConnect {
 	}
 	
 	/**
-	 * This searchIngredient method query the database for the dishes that include this ingredient. 
+	 * This searchIngredient method queries the database for the dishes that include this ingredient. 
 	 * @param ingredient - The name of an ingredient.
 	 * @return - The arrayList that contains all related dishes
 	 * @throws ClassNotFoundException
@@ -105,9 +112,10 @@ public class DBConnect {
 	}
 	
 	/**
-	 * 
-	 * @param effect
-	 * @return
+	 * This findEffect method queried the database for a specific effect. 
+	 * It first retrieve a list of dishes, shuffle the list, then take the first dish as return value. 
+	 * @param effect - the specific effect requested
+	 * @return the result dish
 	 */
 	public static Dish findEffect(String effect){
 		if(effect == "") return null;	
@@ -136,9 +144,9 @@ public class DBConnect {
 		return dish;
 	}
 	/**
-	 * 
-	 * @param part
-	 * @return
+	 * The findMonsterPart effect queries the database for the monsters that drop the specific effect. 
+	 * @param part - the monster part that requested
+	 * @return The name of the monster
 	 */
 	public static String findMonsterPart(String part){
 		part = part.replace("'", "''");
@@ -163,8 +171,8 @@ public class DBConnect {
 	
 	
 	/**
-	 * 
-	 * @return
+	 * The method findMushroom retrieve all the mushrooms in the ingredients from the database. 
+	 * @return a list of mushrooms
 	 */
 	public static ArrayList<String> findMushroom(){
 		DBConnect db = null;
@@ -190,8 +198,8 @@ public class DBConnect {
 	
 	
 	/**
-	 * 
-	 * @return
+	 * The method findElixir retrieve all the kinds of elixirs in the dishes from the database. 
+	 * @return a list of mushrooms
 	 */
 	public static ArrayList<String> findElixir(){
 		DBConnect db = null;
@@ -215,8 +223,9 @@ public class DBConnect {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * The findMonster method queries the database for the monster parts a specific monster drops.
+	 * @param monster - the name of the monster required
+	 * @return the list of monster parts
 	 */
 	public static ArrayList<String> findMonster(String monster){
 		DBConnect db = null;
@@ -242,9 +251,9 @@ public class DBConnect {
 	
 	
 	/**
-	 * 
-	 * @param str
-	 * @return
+	 * The method isMonsterPart queries the database to check whether the input String is a monster part
+	 * @param str - the input String which could be a monster part
+	 * @return true/false, whether the String is a monster part
 	 */
 	public static boolean isMonsterPart(String str) {
 		str = str.replace("'", "''");
@@ -266,17 +275,5 @@ public class DBConnect {
 	}
 	
 
-	
-	
-	public static void main(String[] args) {
-		String test = "naydra's scale";
-		Dish dish = null;
-		ArrayList<String> arr = null;	
-		String r = findMonsterPart(test);
-		System.out.println(r);
-//		for(String n: arr) {
-//			System.out.println(n);
-//		}
-	}
 
 }

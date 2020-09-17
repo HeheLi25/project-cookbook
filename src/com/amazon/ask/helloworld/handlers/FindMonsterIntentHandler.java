@@ -13,6 +13,11 @@ import static com.amazon.ask.request.Predicates.intentName;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * Handler for the questions about what a monster drops. 
+ * @author YirongLi
+ *
+ */
 public class FindMonsterIntentHandler implements IntentRequestHandler {
 
 	@Override
@@ -29,7 +34,7 @@ public class FindMonsterIntentHandler implements IntentRequestHandler {
 			monster = String.valueOf(slot.getValue());
 		}
 		String speechText = "";
-		ArrayList<String> drop = DBConnect.findMonster(monster);
+		ArrayList<String> drop = DBConnect.findMonster(monster);  //Query the database. 
 		if (drop == null || drop.size() == 0 || drop.size() > 5) {
 			speechText = "Sorry, I don't know a lot about " + String.valueOf(slot.getValue())
 					+ ". Please make sure it is a kind of monster that exist on the land of Hyrule.";

@@ -15,7 +15,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Handler for the questions about what kinds of elixirs are there. 
+ * @author YirongLi
+ *
+ */
 public class FindElixirIntentHandler implements IntentRequestHandler {
 
 	@Override
